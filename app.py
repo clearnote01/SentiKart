@@ -30,6 +30,7 @@ def product():
 	"""
 	product=request.args['product']
 	return redirect("/trend/{}_OverAll".format(product))
+
 @app.route('/main_product', methods=['GET','POST'])
 def main_product():
 	if request.method == 'POST':
@@ -41,9 +42,11 @@ def main_product():
 			return redirect("trend/{}_OverAll".format(product_name))
 		return redirect("/wearedoing/{}".format(product_name))
 	return render_template("product.html")
+
 @app.route('/profile')
 def fc():
 	return render_template('user_profile.html')
+
 @app.route('/wearedoing/<productname>')
 def wearedoingit(productname):
 	#doing the naive bayes thing here
